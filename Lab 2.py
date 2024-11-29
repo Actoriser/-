@@ -2,7 +2,7 @@ import sys
 import string
 from collections import Counter
 
-# Frequency of letters in English language
+
 english_frequencies = {
     'A': 8.08, 'B': 1.67, 'C': 3.18, 'D': 3.99, 'E': 12.56,
     'F': 2.17, 'G': 1.80, 'H': 5.27, 'I': 7.24, 'J': 0.14,
@@ -12,23 +12,23 @@ english_frequencies = {
     'Z': 0.07
 }
 
-# Convert frequencies to percentages
+
 english_frequencies = {k: v / 100 for k, v in english_frequencies.items()}
 
-# Input message
+
 message = input()
 
 def decode_shift_cipher(message):
-    # Count frequencies of letters in the message (case-insensitive)
+    
     letter_counts = Counter(c.upper() for c in message if c.isalpha())
     total_letters = sum(letter_counts.values())
 
-    # Calculate frequency in the message
+    
     message_frequencies = {
         letter: count / total_letters for letter, count in letter_counts.items()
     }
 
-    # Find the most likely shift by comparing frequencies
+
     best_shift = 0
     smallest_difference = float('inf')
 
@@ -42,7 +42,7 @@ def decode_shift_cipher(message):
             smallest_difference = difference
             best_shift = shift
 
-    # Decode the message using the best shift
+   
     decoded_message = []
     for char in message:
         if char.isalpha():
@@ -54,7 +54,6 @@ def decode_shift_cipher(message):
 
     return ''.join(decoded_message)
 
-# Get the decoded message
 decoded_message = decode_shift_cipher(message)
 
 # Print the result
