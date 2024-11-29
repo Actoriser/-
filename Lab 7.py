@@ -1,10 +1,7 @@
 import math
 
 def discrete_log_bsgs(G, H, Q):
-    """
-    Solve the discrete logarithm problem using Baby-step Giant-step algorithm.
-    Find X such that G^X mod Q = H.
-    """
+    
     m = int(math.ceil(math.sqrt(Q)))  
     value_table = {}
 
